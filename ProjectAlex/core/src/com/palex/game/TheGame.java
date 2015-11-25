@@ -1,19 +1,24 @@
 package com.palex.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class TheGame extends ApplicationAdapter {
+public class TheGame extends Game {
 	SpriteBatch batch;
 	Texture img;
+
+	BattleScreen battleScreen;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
+		battleScreen = new BattleScreen(this);
+
+		initTests();
 	}
 
 	@Override
@@ -23,5 +28,9 @@ public class TheGame extends ApplicationAdapter {
 		batch.begin();
 		batch.draw(img, 0, 0);
 		batch.end();
+	}
+
+	public void initTests() {
+		setScreen(battleScreen);
 	}
 }
