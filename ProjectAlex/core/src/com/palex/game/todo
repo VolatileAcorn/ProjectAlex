@@ -1,7 +1,7 @@
 todo list
 
 In agent
--getters and setters for stats, maybe incrementer don't forgot "normal" types
+-setters for stats, maybe incrementer don't forgot "normal" types need to implement inventory before equip / unequip. add would be seperately.
 -make an inventory attribute
 -make items class
 

@@ -12,6 +12,7 @@ public class Agent {
 
     private Map<Statistics,Integer> statistics;
     private Map<EquipmentSlots,Integer> equipment;
+    private List<Integer> inventory;
 
 
     public Agent(String name, String description) {
@@ -38,6 +39,24 @@ public class Agent {
         for (int i = 0; i < all_equip_slots.length; i++) {
             equipment.put(all_equip_slots[i],0);
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Integer getStatistics(Statistics stat) {
+        //Returns the skill level / value for a given skill
+        return statistics.get(stat);
+    }
+
+    public Integer getEquipment(EquipmentSlots equip_slot) {
+        //Returns the equipment id of the equipment in the given equipment slot
+        return equipment.get(equip_slot);
     }
 
     private enum Statistics {
