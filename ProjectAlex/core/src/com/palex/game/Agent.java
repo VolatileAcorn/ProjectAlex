@@ -1,9 +1,6 @@
 package com.palex.game;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Tom on 25/11/2015.
@@ -13,46 +10,44 @@ public class Agent {
     private String name;
     private String description;
 
-    private Map<String,Integer> statistics;
-    private Equipment  equipment;
+    private Map<Statistics,Integer> statistics;
+    private Map<EquipmentSlots,Integer> equipment;
 
 
     public Agent(String name, String description) {
         this.name = name;
         this.description = description;
-        this.statistics  = new HashMap<String, Integer>();
         initStatistics();
+        initEquipment();
     }
 
     private void initStatistics() {
-        //For damage calculations
-        statistics.put("FIRE_AFFINITY",0);
-        statistics.put("WATER_AFFINITY",0);
-        statistics.put("EARTH_AFFINITY",0);
-        statistics.put("MELEE_AFFINITY",0);
-        statistics.put("RANGED_AFFINITY",0);
-        statistics.put("MAGIC_AFFINITY",0);
-
-        //For resistance calculations
-        statistics.put("FIRE_RESISTANCE",0);
-        statistics.put("WATER_RESISTANCE",0);
-        statistics.put("EARTH_RESISTANCE",0);
-        statistics.put("MELEE_RESISTANCE",0);
-        statistics.put("RANGED_RESISTANCE",0);
-        statistics.put("MAGIC_RESISTANCE",0);
-
-        //Determines turn order, max actions per turn and hit points
-        statistics.put("SPEED",0);
-        statistics.put("AGILITY",0);
-        statistics.put("MAX_HP",0);
-        statistics.put("CURRENT_HP",0);
+        //Stores each statistic as an integer value
+        this.statistics  = new HashMap<Statistics, Integer>();
+        Statistics[] all_statistics = Statistics.values();
+        for (int i = 0; i < all_statistics.length; i++) {
+            statistics.put(all_statistics[i],0);
+        }
 
     }
 
-
-
-
-
-    private class Equipment {
+    private void initEquipment() {
+        //Stores each piece of equipment. The equipment slot name being the key and the equipment id being the value
+        this.equipment  = new HashMap<EquipmentSlots, Integer>();
+        EquipmentSlots[] all_equip_slots = EquipmentSlots.values();
+        for (int i = 0; i < all_equip_slots.length; i++) {
+            equipment.put(all_equip_slots[i],0);
+        }
     }
+
+    private enum Statistics {
+        FIRE_AFFINITY, WATER_AFFINITY, EARTH_AFFINITY, MELEE_AFFINITY, RANGED_AFFINITY, MAGIC_AFFINITY,
+        FIRE_RESISTANCE, WATER_RESISTANCE, EARTH_RESISTANCE, MELEE_RESISTANCE,RANGED_RESISTANCE, MAGIC_RESISTANCE,
+        SPEED, AGILITY, MAX_HP, CURRENT_HP
+    }
+
+    private enum EquipmentSlots {
+        HEAD, CHEST, LEGS, BOOTS, CAPE, NECK_ACCESSORY, HAND_ACCESSORY, MAIN_WEAPON, OFF_HAND
+    }
+
 }

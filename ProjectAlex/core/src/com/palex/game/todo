@@ -2,11 +2,10 @@ todo list
 
 In agent
 -getters and setters for stats, maybe incrementer don't forgot "normal" types
--make an equipment attribute
 -make an inventory attribute
+-make items class
 
 Elsewhere
--make an equipment class
 -make a weapon class (a weapon is a piece of equipment which has skills)
 -make a skill manager class which has all skills (can get reference by id)
 -make an equipment manager class which has all equipment (can get reference by id)
