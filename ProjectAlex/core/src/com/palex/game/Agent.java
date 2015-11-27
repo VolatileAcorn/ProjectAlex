@@ -1,11 +1,15 @@
 package com.palex.game;
 
+import com.sun.corba.se.impl.orbutil.closure.Constant;
+
 import java.util.*;
 
 /**
  * Created by Tom on 25/11/2015.
  */
 public class Agent {
+
+    private static final int INVENTORY_SIZE = 20;
 
     private String name;
     private String description;
@@ -20,6 +24,14 @@ public class Agent {
         this.description = description;
         initStatistics();
         initEquipment();
+        initInventory();
+    }
+
+    private void initInventory() {
+        this.inventory = new ArrayList();
+        for (;inventory.size() < INVENTORY_SIZE;) {
+            inventory.add(0);
+        }
     }
 
     private void initStatistics() {
@@ -57,6 +69,37 @@ public class Agent {
     public Integer getEquipment(EquipmentSlots equip_slot) {
         //Returns the equipment id of the equipment in the given equipment slot
         return equipment.get(equip_slot);
+    }
+
+    public Integer getInventoryItemID(int index){
+        return inventory.get(index);
+    }
+
+    /**
+     * Given an itemID, the index of the first occurrence of the item will be returned, otherwise zero
+     * @param itemID The item ID of the item who's index you wish to know
+     * @return The index of the first occurrence of the item will be returned, otherwise zero
+     */
+    public Integer getInventoryItemIndex(int itemID){
+        if (inventory.contains(itemID)) {
+            return inventory.indexOf(itemID);
+        }
+        return 0;
+    }
+
+    /**
+     * Will add an item and return 1 to the inventory if there is room, otherwise it will return 0.
+     * @param itemID The item ID of the item to be added to the inventory.
+     * @return returns the 1 if the item has successfully been added to the inventory or 0 if there is no room.
+     */
+    public int addToInventory(int itemID) {
+        //if there is a free inventory space
+        if (inventory.contains(0)){
+            inventory.add(inventory.indexOf(0), itemID);
+
+            return 1;
+        }
+        return 0;
     }
 
     private enum Statistics {

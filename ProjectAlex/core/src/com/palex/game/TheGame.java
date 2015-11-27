@@ -32,5 +32,7 @@ public class TheGame extends Game {
 
 	public void initTests() {
 		setScreen(battleScreen);
+		Agent agent1 = new Agent("Tom B", "He were a nice hahahha, he were a nice.. shaun bean away...");
+
 	}
 }

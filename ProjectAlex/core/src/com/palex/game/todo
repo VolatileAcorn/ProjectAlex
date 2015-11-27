@@ -2,8 +2,10 @@ todo list
 
 In agent
 -setters for stats, maybe incrementer don't forgot "normal" types need to implement inventory before equip / unequip. add would be seperately.
--make an inventory attribute
 -make items class
+-look at two getters for inventory
+
+-how to handle duplicate items, what to store in the inventory. Will i need a method to get index from itemid because this is a problem if so
 
 Elsewhere
 -make a weapon class (a weapon is a piece of equipment which has skills)
