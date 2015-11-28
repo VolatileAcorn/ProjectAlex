@@ -71,20 +71,13 @@ public class Agent {
         return equipment.get(equip_slot);
     }
 
+    /**
+     * Given the index of the item in the inventory, the itemID of the item will be returned
+     * @param index the index of the item ID in the inventory
+     * @return Returns the item id of the item
+     */
     public Integer getInventoryItemID(int index){
         return inventory.get(index);
-    }
-
-    /**
-     * Given an itemID, the index of the first occurrence of the item will be returned, otherwise zero
-     * @param itemID The item ID of the item who's index you wish to know
-     * @return The index of the first occurrence of the item will be returned, otherwise zero
-     */
-    public Integer getInventoryItemIndex(int itemID){
-        if (inventory.contains(itemID)) {
-            return inventory.indexOf(itemID);
-        }
-        return 0;
     }
 
     /**
