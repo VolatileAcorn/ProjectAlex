@@ -9,14 +9,14 @@ import java.util.*;
  */
 public class Agent {
 
-    private static final int INVENTORY_SIZE = 20;
+
 
     private String name;
     private String description;
 
     private Map<Statistics,Integer> statistics;
     private Map<EquipmentSlots,Integer> equipment;
-    private List<Integer> inventory;
+    private Inventory inventory;
 
 
     public Agent(String name, String description) {
@@ -24,14 +24,7 @@ public class Agent {
         this.description = description;
         initStatistics();
         initEquipment();
-        initInventory();
-    }
-
-    private void initInventory() {
-        this.inventory = new ArrayList();
-        for (;inventory.size() < INVENTORY_SIZE;) {
-            inventory.add(0);
-        }
+        this.inventory = new Inventory();
     }
 
     private void initStatistics() {
@@ -69,30 +62,6 @@ public class Agent {
     public Integer getEquipment(EquipmentSlots equip_slot) {
         //Returns the equipment id of the equipment in the given equipment slot
         return equipment.get(equip_slot);
-    }
-
-    /**
-     * Given the index of the item in the inventory, the itemID of the item will be returned
-     * @param index the index of the item ID in the inventory
-     * @return Returns the item id of the item
-     */
-    public Integer getInventoryItemID(int index){
-        return inventory.get(index);
-    }
-
-    /**
-     * Will add an item and return 1 to the inventory if there is room, otherwise it will return 0.
-     * @param itemID The item ID of the item to be added to the inventory.
-     * @return returns the 1 if the item has successfully been added to the inventory or 0 if there is no room.
-     */
-    public int addToInventory(int itemID) {
-        //if there is a free inventory space
-        if (inventory.contains(0)){
-            inventory.add(inventory.indexOf(0), itemID);
-
-            return 1;
-        }
-        return 0;
     }
 
     private enum Statistics {

@@ -1,14 +1,25 @@
 todo list
 
-In agent
--setters for stats, maybe incrementer don't forgot "normal" types need to implement inventory before equip / unequip. add would be seperately.
--make items class
-
-
+In Agent
+-setters for stats, maybe incrementer don't forgot "normal" types
+-implement equip / unequip (after Equipment and weapon item classes are implemented)
 
 Elsewhere
--make a weapon class (a weapon is a piece of equipment which has skills)
--make a skill manager class which has all skills (can get reference by id)
--make an equipment manager class which has all equipment (can get reference by id)
 
--make a battle manager (start);
+Maybe make an equipmentSlots class for the agent that deals with each equipment slot as an individual field (try not to crowd agent class)
+
+Item classes
+-make Item class
+-make EquipmentItem class (can be equipped to only a certain type of slot)
+-make WeaponItem class (a weapon is a piece of equipment which has skills)
+-make ResourceItem class (basically just have value and can be sold)
+-make UsableItem class (has some sort of effect on stats)
+
+Factories
+-make a skill factory class which has all skills (can get reference by id)
+-make an item factory class which has all equipment (can get reference by id)
+
+Managers
+-make a battle manager (start)
+
+Input Handler
