@@ -33,6 +33,7 @@ public class TheGame extends Game {
 	public void initTests() {
 		setScreen(battleScreen);
 		Agent agent1 = new Agent("Tom B", "He were a nice hahahha, he were a nice.. shaun bean away...");
-
+		WeaponItem wItem1 = new WeaponItem("Hammer of doom","Incredibly tough");
+		System.out.println(wItem1.getType());
 	}
 }

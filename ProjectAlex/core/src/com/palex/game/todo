@@ -1,4 +1,6 @@
 todo list
+Tips
+-can use ints just make sure the getters and setters deal with it and is well documented (encapsulate)
 
 In Agent
 -setters for stats, maybe incrementer don't forgot "normal" types
