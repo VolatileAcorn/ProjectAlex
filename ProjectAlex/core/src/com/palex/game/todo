@@ -1,6 +1,6 @@
 todo list
 Tips
--can use ints just make sure the getters and setters deal with it and is well documented (encapsulate)
+
 
 In Agent
 -setters for stats, maybe incrementer don't forgot "normal" types
@@ -13,12 +13,16 @@ Maybe make an equipmentSlots class for the agent that deals with each equipment 
 Item classes
 -make Item class
 -make EquipmentItem class (can be equipped to only a certain type of slot)
--make WeaponItem class (a weapon is a piece of equipment which has skills)
+-make WeaponItem class (a weapon is a piece of equipment which has skill)
 -make ResourceItem class (basically just have value and can be sold)
 -make UsableItem class (has some sort of effect on stats)
 
+Skill class
+-work out how a skill will work, how can we get a variety of moves
+-basics (power, element, combo(skill based rhythm))
+
 Factories
--make a skill factory class which has all skills (can get reference by id)
+-make a skill factory class which has all skill (can get reference by id)
 -make an item factory class which has all equipment (can get reference by id)
 
 Managers

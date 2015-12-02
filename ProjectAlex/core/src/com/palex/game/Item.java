@@ -7,9 +7,9 @@ public class Item {
 
     private String name;
     private String description;
-    private int type;
+    private ItemType type;
 
-    public Item(String name, String description, int type) {
+    public Item(String name, String description, ItemType type) {
         this.name = name;
         this.description = description;
         this.type = type;
@@ -23,7 +23,11 @@ public class Item {
         return description;
     }
 
-    public int getType() {
+    public ItemType getType() {
         return type;
+    }
+
+    public enum ItemType {
+        WEAPON, ARMOURSET, CHARM, RESOURCE
     }
 }
