@@ -5,10 +5,12 @@ Tips
 In Agent
 -setters for stats, maybe incrementer don't forgot "normal" types
 -implement equip / unequip (after Equipment and weapon item classes are implemented)
+-add methods that deal will equipment inventory skills
 
 Elsewhere
 
-Maybe make an equipmentSlots class for the agent that deals with each equipment slot as an individual field (try not to crowd agent class)
+EquipmentSlots class
+-needs all relevant methods after item classes and consequential classes implemented
 
 Item classes
 -make Item class
@@ -19,11 +21,16 @@ Item classes
 
 Skill class
 -work out how a skill will work, how can we get a variety of moves
--basics (power, element, combo(skill based rhythm))
+-each skill type is a different skill class like weapon
+-basics (power, combo(one finger death punch style))
+-weapons have elements which then modify the skill (or should both have (maybe introduce different skill types e.g drain, status, ultimate))
+
+Statistics class
+-make one and make it function as before
 
 Factories
 -make a skill factory class which has all skill (can get reference by id)
--make an item factory class which has all equipment (can get reference by id)
+-make an item factory class which has all items (can get reference by id)
 
 Managers
 -make a battle manager (start)

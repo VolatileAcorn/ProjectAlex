@@ -1,4 +1,4 @@
-package com.palex.game;
+package com.palex.item;
 
 /**
  * Created by Tom on 30/11/2015.
