@@ -1,13 +1,14 @@
 todo list
 Tips
 
+Urgent
+-Work out how items should be created, how to access them by ItemID, how to store Items
+-Similar problem for Agents
 
 In Agent
 -setters for stats, maybe incrementer don't forgot "normal" types
 -implement equip / unequip (after Equipment and weapon item classes are implemented)
 -add methods that deal will equipment inventory skills
-
-Elsewhere
 
 EquipmentSlots class
 -needs all relevant methods after item classes and consequential classes implemented
@@ -20,13 +21,8 @@ Item classes
 -make UsableItem class (has some sort of effect on stats)
 
 Skill class
--work out how a skill will work, how can we get a variety of moves
--each skill type is a different skill class like weapon
--basics (power, combo(one finger death punch style))
--weapons have elements which then modify the skill (or should both have (maybe introduce different skill types e.g drain, status, ultimate))
-
-Statistics class
--make one and make it function as before
+-attack method will go in Agent some switch statement, work out how to start attack, then get input some time later, then calculate, and update Agents (maybe set some flag(s) in the battle manager)
+-are different classes needed for different skill types, meybz not
 
 Factories
 -make a skill factory class which has all skill (can get reference by id)

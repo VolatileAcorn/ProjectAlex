@@ -5,6 +5,7 @@ package com.palex.item;
  */
 public class Item {
 
+    private int itemID;
     private String name;
     private String description;
     private ItemType type;
@@ -26,6 +27,8 @@ public class Item {
     public ItemType getType() {
         return type;
     }
+
+    public int getItemID() {return itemID; }
 
     public enum ItemType {
         WEAPON, ARMOURSET, CHARM, RESOURCE

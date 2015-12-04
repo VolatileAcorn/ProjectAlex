@@ -21,7 +21,27 @@ public class Skill {
         this.power = power;
     }
 
+    public WeaponItem.WeaponStyle getWeaponStyleRestriction() {
+        return weaponStyleRestriction;
+    }
+
+    public WeaponItem.WeaponType getWeaponTypeRestriction() {
+        return weaponTypeRestriction;
+    }
+
+    public int getLevelRestriction() {
+        return levelRestriction;
+    }
+
+    public SkillType getSkillType() {
+        return skillType;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
     public enum SkillType {
-        ONE_HIT, COMBO, HEAL, DRAIN, ULTIMATE
+        ONE_HIT, COMBO, DRAIN, HEAL, STATUS, ULTIMATE
     }
 }
