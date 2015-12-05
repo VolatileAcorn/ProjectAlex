@@ -1,6 +1,9 @@
 todo list
 Tips
 
+Urgent
+-need to update anything storing items to store itemID and itemType
+
 Factories
 -My item factory will create an item every time that is required and add it to its list of items which can be accessed by itemID (later on it will be beneficial to be able to remove an item)
 -will be able to create predefined items (resources, special items, quest items)

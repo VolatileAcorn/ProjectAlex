@@ -10,10 +10,11 @@ public class Item {
     private String description;
     private ItemType type;
 
-    public Item(String name, String description, ItemType type) {
+    public Item(String name, String description, ItemType type, int itemID) {
         this.name = name;
         this.description = description;
         this.type = type;
+        this.itemID = itemID;
     }
 
     public String getName() {
