@@ -1,9 +1,13 @@
 todo list
 Tips
 
-Urgent
--Work out how items should be created, how to access them by ItemID, how to store Items
--Similar problem for Agents
+Factories
+-My item factory will create an item every time that is required and add it to its list of items which can be accessed by itemID (later on it will be beneficial to be able to remove an item)
+-will be able to create predefined items (resources, special items, quest items)
+-My agent factory will create an agent when required and add it to the agent list (later on it will be beneficial to be able to remove an agent)
+-will be able to create predefined agents (bosses, player etc)
+-Generation of items comes from some enemy agent parameters and player parameters
+-Generation of agents from some region list of enemies, player parameters
 
 In Agent
 -setters for stats, maybe incrementer don't forgot "normal" types

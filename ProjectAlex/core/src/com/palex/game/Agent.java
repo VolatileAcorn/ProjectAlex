@@ -9,8 +9,6 @@ import java.util.*;
  */
 public class Agent {
 
-
-
     private String name;
     private String description;
 
