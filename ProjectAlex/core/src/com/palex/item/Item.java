@@ -32,6 +32,6 @@ public class Item {
     public int getItemID() {return itemID; }
 
     public enum ItemType {
-        WEAPON, ARMOURSET, CHARM, RESOURCE
+        WEAPON, ARMOURSET, CHARM, RESOURCE, NONE
     }
 }
