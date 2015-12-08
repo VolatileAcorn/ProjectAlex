@@ -6,7 +6,7 @@ package com.palex.item;
 public class ResourceItem extends Item {
 
 
-    public ResourceItem(String name, String description) {
-        super(name, description, ItemType.RESOURCE);
+    public ResourceItem(String name, String description, ItemType type, int itemID) {
+        super(name, description, type, itemID);
     }
 }

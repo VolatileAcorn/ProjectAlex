@@ -20,6 +20,8 @@ public class TheGame extends Game {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		battleScreen = new BattleScreen(this);
+		itemFactory = new ItemFactory();
+
 
 		initTests();
 	}

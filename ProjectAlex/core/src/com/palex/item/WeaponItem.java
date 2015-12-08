@@ -3,6 +3,8 @@ package com.palex.item;
 import com.palex.game.Skill;
 import com.palex.item.Item;
 
+import java.util.Arrays;
+
 /**
  * Created by Tom on 30/11/2015.
  */
@@ -22,6 +24,17 @@ public class WeaponItem extends Item {
         this.weaponType = weaponType;
         this.weaponElement = weaponElement;
         this.basePower = basePower;
+    }
+
+    @Override
+    public String toString() {
+        return "WeaponItem{" +
+                "skills=" + Arrays.toString(skills) +
+                ", weaponStyle=" + weaponStyle +
+                ", weaponType=" + weaponType +
+                ", weaponElement=" + weaponElement +
+                ", basePower=" + basePower +
+                '}';
     }
 
     public enum WeaponStyle {

@@ -72,11 +72,29 @@ public class ItemFactory {
             return this.armourSetMap.get(itemID);
         }
 
-        else if (itemID > MAX_ARMOURSET_ITEM_ID && itemID <= MAX_CHARM_ITEM_ID && this.resourceMap.containsKey(itemID)) {
+        else if (itemID > MAX_ARMOURSET_ITEM_ID && itemID <= MAX_CHARM_ITEM_ID && this.charmMap.containsKey(itemID)) {
             return this.charmMap.get(itemID);
         }
 
         return noItem;
+    }
+
+    public void deleteItem (int itemID) {
+        if (itemID > 0 && itemID <= MAX_RESOURCE_ITEM_ID && this.resourceMap.containsKey(itemID)) {
+            this.resourceMap.remove(itemID);
+        }
+
+        else if (itemID > MAX_RESOURCE_ITEM_ID && itemID <= MAX_WEAPON_ITEM_ID && this.weaponMap.containsKey(itemID)) {
+            this.weaponMap.remove(itemID);
+        }
+
+        else if (itemID > MAX_WEAPON_ITEM_ID && itemID <= MAX_ARMOURSET_ITEM_ID && this.armourSetMap.containsKey(itemID)) {
+            this.armourSetMap.remove(itemID);
+        }
+
+        else if (itemID > MAX_ARMOURSET_ITEM_ID && itemID <= MAX_CHARM_ITEM_ID && this.charmMap.containsKey(itemID)) {
+            this.charmMap.remove(itemID);
+        }
     }
 
 }
