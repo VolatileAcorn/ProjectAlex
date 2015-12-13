@@ -7,13 +7,17 @@ import com.palex.item.WeaponItem;
  */
 public class Skill {
 
+    private String skillName;
+    private String skillDescription;
     private WeaponItem.WeaponStyle weaponStyleRestriction;
     private WeaponItem.WeaponType weaponTypeRestriction;
     private int levelRestriction;
     private SkillType skillType;
     private int power;
 
-    public Skill(WeaponItem.WeaponStyle weaponStyleRestriction, WeaponItem.WeaponType weaponTypeRestriction, int levelRestriction, SkillType skillType, int power) {
+    public Skill(String skillName ,String skillDescription ,WeaponItem.WeaponStyle weaponStyleRestriction, WeaponItem.WeaponType weaponTypeRestriction, int levelRestriction, SkillType skillType, int power) {
+        this.skillName = skillName;
+        this.skillDescription = skillDescription;
         this.weaponStyleRestriction = weaponStyleRestriction;
         this.weaponTypeRestriction = weaponTypeRestriction;
         this.levelRestriction = levelRestriction;

@@ -1,5 +1,9 @@
 package com.palex.item;
 
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.palex.game.Agent;
 import com.palex.game.Skill;
 
 import java.util.ArrayList;
@@ -7,12 +11,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.palex.item.Item.ItemType;
+
 /**
  * Created by Tom on 05/12/2015.
  */
 public class ItemFactory {
 
-    //WEAPON, ARMOURSET, CHARM, RESOURCE
 
     //Constants used to identify the type of an item based on its itemID
     private static final int MAX_RESOURCE_ITEM_ID = 1000;
@@ -26,7 +31,7 @@ public class ItemFactory {
     private static final int ARMOURSET_MAP_SIZE = 2000;
     private static final int CHARM_MAP_SIZE = 2000;
 
-    private Item noItem = new Item("","", Item.ItemType.NONE,0);
+    private Item noItem = null;
 
     private Map<Integer, WeaponItem> weaponMap;
     private Map<Integer, ResourceItem> resourceMap;
@@ -38,6 +43,10 @@ public class ItemFactory {
     private int armourSetNextID;
     private int resourceNextID;
     private int charmNextID;
+
+    //File handlers for tsv
+    //format = name "\t" description "\t" itemID "\n"   (minus spaces in between)
+    private FileHandle resourceItemFile = Gdx.files.local("resourceItems.tsv");
 
 
 
@@ -95,6 +104,69 @@ public class ItemFactory {
         else if (itemID > MAX_ARMOURSET_ITEM_ID && itemID <= MAX_CHARM_ITEM_ID && this.charmMap.containsKey(itemID)) {
             this.charmMap.remove(itemID);
         }
+    }
+
+    public int generateItem (Agent player, Agent enemy, Item.ItemType itemType) {
+
+        switch (itemType) {
+            case RESOURCE: {
+                //give a predefined resource ID
+            }
+            case WEAPON: {
+                //generate weapon based on some tables and add to list
+                WeaponItem tempWeapon = new WeaponItem("TestName","TestDescription",weaponNextID, new int[0], WeaponItem.WeaponStyle.MAGIC, WeaponItem.WeaponType.ONEHAND, WeaponItem.WeaponElement.EARTH, 0);
+                weaponMap.put(weaponNextID, tempWeapon);
+                weaponNextID++;
+            }
+            case ARMOURSET: {
+                //generate armour set based on some tables and add to list
+
+            }
+            case CHARM: {
+                //generate charm based on some tables and add to list
+
+            }
+        }
+
+        return 0;
+    }
+
+    private void loadResources() {
+        String[] currentResource;
+        String[] resourceItemArray  = resourceItemFile.toString().split("\n");
+        ResourceItem tempResource;
+        for (int i = 0; i < resourceItemArray.length; i++) {
+            currentResource = resourceItemArray[i].split("\t");
+
+            try {
+                if (currentResource.length < 3) {throw new Exception("Error reading resource: " + currentResource.toString());}
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            tempResource = new ResourceItem(currentResource[0],currentResource[1], ItemType.RESOURCE ,Integer.parseInt(currentResource[2]));
+            resourceMap.put(tempResource.getItemID(),tempResource);
+            if (tempResource.getItemID() >= resourceNextID) {
+                resourceNextID = tempResource.getItemID() + 1;
+            }
+        }
+    }
+
+    public void createAndAddResource(String name, String description) {
+        ResourceItem newResource = new ResourceItem(name,description,ItemType.RESOURCE,resourceNextID);
+        resourceMap.put(resourceNextID,newResource);
+        resourceNextID ++;
+    }
+
+    public void storeResources() {
+        ArrayList<ResourceItem> resourceItems = new ArrayList<ResourceItem>(resourceMap.values());
+        String resourceItemsAsString = "";
+        for (int i = 0; i < resourceItems.size(); i++) {
+            resourceItemsAsString += resourceItems.get(i).getName().toString() + "\t";
+            resourceItemsAsString += resourceItems.get(i).getDescription().toString() + "\t";
+            resourceItemsAsString += String.valueOf(resourceItems.get(i).getItemID()) + "\n";
+        }
+        resourceItemFile.writeString(resourceItemsAsString,false);
     }
 
 }

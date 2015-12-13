@@ -10,14 +10,14 @@ import java.util.Arrays;
  */
 public class WeaponItem extends Item {
 
-    private Skill[] skills;
+    private int[] skills;
     private WeaponStyle weaponStyle; //ranged melee etc
     private WeaponType weaponType; //2h or 1h
     private WeaponElement weaponElement; //earth, water etc
     private int basePower; //base power
 
 
-    public WeaponItem(String name, String description, int weaponItemID, Skill[] skills, WeaponStyle weaponStyle, WeaponType weaponType, WeaponElement weaponElement, int basePower) {
+    public WeaponItem(String name, String description, int weaponItemID, int[] skills, WeaponStyle weaponStyle, WeaponType weaponType, WeaponElement weaponElement, int basePower) {
         super(name, description, ItemType.WEAPON, weaponItemID);
         this.skills = skills;
         this.weaponStyle = weaponStyle;
@@ -26,16 +26,6 @@ public class WeaponItem extends Item {
         this.basePower = basePower;
     }
 
-    @Override
-    public String toString() {
-        return "WeaponItem{" +
-                "skills=" + Arrays.toString(skills) +
-                ", weaponStyle=" + weaponStyle +
-                ", weaponType=" + weaponType +
-                ", weaponElement=" + weaponElement +
-                ", basePower=" + basePower +
-                '}';
-    }
 
     public enum WeaponStyle {
         RANGED, MELEE, MAGIC

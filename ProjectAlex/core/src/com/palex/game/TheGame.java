@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.palex.item.Item;
 import com.palex.item.ItemFactory;
 import com.palex.item.WeaponItem;
 
@@ -24,6 +25,7 @@ public class TheGame extends Game {
 
 
 		initTests();
+		makeInitialResources();
 	}
 
 	@Override
@@ -41,4 +43,14 @@ public class TheGame extends Game {
 		//WeaponItem wItem1 = new WeaponItem("Hammer of doom","Incredibly tough",);
 		//System.out.println(wItem1.getType());
 	}
+
+	public void makeInitialResources() {
+		//make loads of resources here
+		itemFactory.createAndAddResource("Bones","too creepy four me");
+		itemFactory.createAndAddResource("Oak Logs","a sturdy building material");
+		itemFactory.createAndAddResource("Weeds","for ugly gardens");
+		//save to file
+		itemFactory.storeResources();
+	}
+
 }
