@@ -1,0 +1,5 @@
+Swipe	a swift swipe from your weapon	1	0	0	0	10	0
+Cleave	a powerful swing	1	1	0	0	15	1
+Darting Blows	multiple consecutive stab attacks	1	0	0	1	5	2
+Full Draw	getting the maximum strength from the construction of your bow	0	1	0	0	15	3
+Elemental Blast	channels the magical power from your weapon into a single blast	2	1	0	0	15	4

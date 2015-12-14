@@ -7,6 +7,7 @@ read and write current ItemFactory to some file
 read an initial AgentFactory
 read an write current AgentFactory to some file
 save a current state of a zone in terms of ItemFactory??
+read an initial SkillFactory state they will not be changed throughout the game
 
 
 Factories

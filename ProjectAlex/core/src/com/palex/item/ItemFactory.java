@@ -6,6 +6,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.palex.game.Agent;
 import com.palex.game.Skill;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +53,7 @@ public class ItemFactory {
 
     public ItemFactory() {
         initItemMaps();
+        loadResources();
     }
 
     private void initItemMaps() {
@@ -133,13 +135,13 @@ public class ItemFactory {
 
     private void loadResources() {
         String[] currentResource;
-        String[] resourceItemArray  = resourceItemFile.toString().split("\n");
+        String[] resourceItemArray  = resourceItemFile.readString().split("\n");
         ResourceItem tempResource;
+
         for (int i = 0; i < resourceItemArray.length; i++) {
             currentResource = resourceItemArray[i].split("\t");
-
             try {
-                if (currentResource.length < 3) {throw new Exception("Error reading resource: " + currentResource.toString());}
+                if (currentResource.length != 3) {throw new Exception("Error reading resource: " + currentResource.toString());}
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -152,12 +154,18 @@ public class ItemFactory {
         }
     }
 
+    /**
+     * maybe a redundant method, just used for testing.
+     */
     public void createAndAddResource(String name, String description) {
         ResourceItem newResource = new ResourceItem(name,description,ItemType.RESOURCE,resourceNextID);
         resourceMap.put(resourceNextID,newResource);
         resourceNextID ++;
     }
 
+    /**
+     * maybe a redundant method, just used for testing.
+     */
     public void storeResources() {
         ArrayList<ResourceItem> resourceItems = new ArrayList<ResourceItem>(resourceMap.values());
         String resourceItemsAsString = "";

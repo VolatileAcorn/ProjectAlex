@@ -17,6 +17,17 @@ public class Item {
         this.itemID = itemID;
     }
 
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemID=" + itemID +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

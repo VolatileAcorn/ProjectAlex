@@ -13,6 +13,7 @@ public class TheGame extends Game {
 	SpriteBatch batch;
 	Texture img;
 	ItemFactory itemFactory;
+	SkillFactory skillFactory;
 
 	BattleScreen battleScreen;
 	
@@ -22,10 +23,12 @@ public class TheGame extends Game {
 		img = new Texture("badlogic.jpg");
 		battleScreen = new BattleScreen(this);
 		itemFactory = new ItemFactory();
+		skillFactory = new SkillFactory();
 
 
 		initTests();
-		makeInitialResources();
+		System.out.println(itemFactory.getItem(1));
+		System.out.println(skillFactory.getSkill(3));
 	}
 
 	@Override
@@ -43,6 +46,7 @@ public class TheGame extends Game {
 		//WeaponItem wItem1 = new WeaponItem("Hammer of doom","Incredibly tough",);
 		//System.out.println(wItem1.getType());
 	}
+/*
 
 	public void makeInitialResources() {
 		//make loads of resources here
@@ -52,5 +56,6 @@ public class TheGame extends Game {
 		//save to file
 		itemFactory.storeResources();
 	}
+*/
 
 }

@@ -14,8 +14,9 @@ public class Skill {
     private int levelRestriction;
     private SkillType skillType;
     private int power;
+    private int skillID;
 
-    public Skill(String skillName ,String skillDescription ,WeaponItem.WeaponStyle weaponStyleRestriction, WeaponItem.WeaponType weaponTypeRestriction, int levelRestriction, SkillType skillType, int power) {
+    public Skill(String skillName ,String skillDescription ,WeaponItem.WeaponStyle weaponStyleRestriction, WeaponItem.WeaponType weaponTypeRestriction, int levelRestriction, SkillType skillType, int power, int skillID) {
         this.skillName = skillName;
         this.skillDescription = skillDescription;
         this.weaponStyleRestriction = weaponStyleRestriction;
@@ -23,6 +24,21 @@ public class Skill {
         this.levelRestriction = levelRestriction;
         this.skillType = skillType;
         this.power = power;
+        this.skillID = skillID;
+    }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "skillName='" + skillName + '\'' +
+                ", skillDescription='" + skillDescription + '\'' +
+                ", weaponStyleRestriction=" + weaponStyleRestriction +
+                ", weaponTypeRestriction=" + weaponTypeRestriction +
+                ", levelRestriction=" + levelRestriction +
+                ", skillType=" + skillType +
+                ", power=" + power +
+                ", skillID=" + skillID +
+                '}';
     }
 
     public WeaponItem.WeaponStyle getWeaponStyleRestriction() {
@@ -43,6 +59,10 @@ public class Skill {
 
     public int getPower() {
         return power;
+    }
+
+    public int getSkillID() {
+        return skillID;
     }
 
     public enum SkillType {
